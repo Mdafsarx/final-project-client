@@ -100,7 +100,7 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                  {user.role==='admin'?'admin':<button className="btn btn-ghost btn-xs" onClick={()=>handleAdmin(user?._id)}>
+                                  {user?.role==='admin'?'admin':<button className="btn btn-ghost btn-xs" onClick={()=>handleAdmin(user?._id)}>
                                     <FaUser/>
                                   </button>}
                                 </td>

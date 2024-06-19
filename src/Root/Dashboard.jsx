@@ -19,9 +19,9 @@ const Dashboard = () => {
                         admin
                             ?
                             <>
-                                <Link className="flex items-center  font-bold gap-2"><FaHome />Admin Home</Link>
-                                <Link className="flex items-center  font-bold gap-2"><GiForkKnifeSpoon /> Add item</Link>
-                                <Link className="flex items-center  font-bold gap-2"><IoMenu />Manage item</Link>
+                                <Link className="flex items-center  font-bold gap-2" to={'/dashboard/adminHome'}><FaHome />Admin Home</Link>
+                                <Link className="flex items-center  font-bold gap-2" to={'/dashboard/addItem'}><GiForkKnifeSpoon /> Add item</Link>
+                                <Link className="flex items-center  font-bold gap-2" to={'/dashboard/manageItem'}><IoMenu />Manage item</Link>
                                 <Link className="flex items-center  font-bold gap-2"><GiBookCover />Manage Booking</Link>
                                 <Link className="flex items-center  font-bold gap-2" to={'/dashboard/users'}><BiUser />All users</Link>
 
@@ -29,8 +29,8 @@ const Dashboard = () => {
                             :
                             <>
                                 <Link className="flex items-center  font-bold gap-2" to={'/dashboard/myCard'}><FaCartShopping /> My Card</Link>
-                                <Link className="flex items-center  font-bold gap-2"><FaHome />user Home</Link>
-                                <Link className="flex items-center  font-bold gap-2"><GiPayMoney />Payment</Link>
+                                <Link className="flex items-center  font-bold gap-2" to={'/dashboard/userHome'}><FaHome />user Home</Link>
+                                <Link className="flex items-center  font-bold gap-2" to={'/dashboard/history'}><GiPayMoney />Payment history</Link>
                                 <Link className="flex items-center  font-bold gap-2"><FaStreetView />review</Link>
                                 <Link className="flex items-center  font-bold gap-2"><BiBookmark />Booking</Link>
                             </>

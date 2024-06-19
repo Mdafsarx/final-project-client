@@ -16,7 +16,7 @@ const FoodCard = ({ item }) => {
 
     const handleAdd = (data) => {
         if (user && user.email) {
-            const CardData={menuId:_id , email:user?.email,name,recipe,image,price}
+            const CardData={menuId:_id , email:user?.email,name,recipe,image,price:parseInt(price)}
             axios.post('http://localhost:3000/card',CardData)
             .then(data=>{
                 console.log(data.data)

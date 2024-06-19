@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import useCartData from "../Hooks/useCartData";
+import useAdmin from "../Hooks/useAddmin";
 
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
     const [data]=useCartData();
+    const [isAdmin]=useAdmin()
 
 
 
@@ -17,6 +19,13 @@ const Navbar = () => {
         <Link to={'/menu'}>Our menu</Link>
         <Link to={'/ourShop/salad'}>Our shop</Link>
         <Link to={'/dashboard/myCard'} className="btn gap-0"><BsFillCartPlusFill /><span>({data?.length})</span></Link>
+        {
+          user && isAdmin && <Link to={'/dashboard/adminHome'} className=" gap-0">Admin Home</Link>
+        }
+        {
+          user && !isAdmin && <Link to={'/dashboard/userHome'} className=" gap-0">User Home</Link>
+        }
+
         {
             user ?
                 <button className="hover:animate-pulse" onClick={() => {

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const useMenu = () => {
 
     const [menu, setMenu] = useState([]);
+    const [reload,setReload]=useState(false)
 
     useEffect(() => {
         fetch('http://localhost:3000/menu')
@@ -10,11 +11,11 @@ const useMenu = () => {
             .then(data => {
                 setMenu(data)
             })
-    }, [])
+    }, [reload])
 
 
 
-    return [menu]
+    return [menu,setReload,reload]
 };
 
 export default useMenu;

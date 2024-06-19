@@ -7,7 +7,6 @@ const useCartData = () => {
     const axiosBase = axiosUrl();
     // const [carts, setCarts] = useState([]);
     const { user } = useAuth();
-    console.log(user)
 
     const { refetch , data : carts=[]} = useQuery({
         queryKey: ['card',user?.email],

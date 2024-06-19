@@ -2,11 +2,26 @@ import { FiTrash } from "react-icons/fi";
 import useCartData from "../../Hooks/useCartData";
 import Swal from "sweetalert2";
 import axiosUrl from "../../Hooks/axiosUrl";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MyCard = () => {
     const [data,refetch] = useCartData()
     const totalPrice = data.reduce((p, c) => p + c.price, 0);
     const axiosBase = axiosUrl()
+
+    const handleClick=()=>{
+
+        axios.post('http://localhost:3000/create-payment',{
+            cur:'usd'
+        })
+        .then(data=>{
+            if(data.data.paymentURl){
+                window.location.replace(data.data.paymentURl)
+            }
+        })
+
+    }
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -49,7 +64,7 @@ const MyCard = () => {
             <div className="p-5 flex items-center justify-evenly gap-5">
                 <h1 className="text-2xl font-bold">Item ({data.length})</h1>
                 <h1 className="text-2xl font-bold">Total Price: ({totalPrice}$)</h1>
-                <button className="btn btn-error text-white btn-sm">Pay</button>
+               <Link to={'/dashboard/pay'}><button className="btn btn-error text-white btn-sm" onClick={handleClick}>Pay</button></Link>
             </div>
 
 

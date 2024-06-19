@@ -12,15 +12,13 @@ const AdminPrivate = ({ children }) => {
 
 
 
-    if (user && admin ) {
+    if (user && admin) {
         return children
     }
-    else if (loading || isPending) {
+    if (loading || isPending) {
         return <div><span className="text-7xl animate-spin"><TbFidgetSpinner /></span></div>
     }
-    else {
-        return <Navigate to={'/login'} state={location.pathname} />
-    }
+    return <Navigate to={'/'} state={location.pathname} />
 
 
 
